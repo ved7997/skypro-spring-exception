@@ -1,7 +1,6 @@
 package pro.sky.skyprospringexception.service.impl;
 
 import org.springframework.stereotype.Service;
-import pro.sky.skyprospringexception.exception.EmployeeBookOverflowException;
 import pro.sky.skyprospringexception.exception.EmployeeExistsException;
 import pro.sky.skyprospringexception.exception.EmployeeNotFoundException;
 import pro.sky.skyprospringexception.service.Employee;
@@ -57,15 +56,13 @@ public class EmployeeServiceImpl implements EmployeeService {
             return employee;
     }
 
-  @Override
-   public Collection<Employee> all() {
-      return null;
-   }
-
     @Override
-    public Collection<Employee> getAll() {
-        return Set.copyOf(employees);
+    public Employee all() {
+        return null;
     }
 
-
+    @Override
+   public Collection<Employee> getAll() {
+      return null ;
+    }
 }

@@ -1,5 +1,9 @@
 package pro.sky.skyprospringexception.controller;
 
+import net.minidev.json.JSONNavi;
+import org.apache.catalina.util.ErrorPageSupport;
+import org.apache.tomcat.jni.Directory;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,12 +17,19 @@ import java.util.Set;
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
-
-    private final Set<Employee> employees ;
-
-    public EmployeeController(Set<Employee> employees) {
-        this.employees = employees;
+    private final EmployeeService employeeService;
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
+
+//    private final EmployeeService employeeService;
+
+//    public EmployeeController(EmployeeService employees) {
+//        this.employees = employees;
+
+
+
+
     @GetMapping("/add")
     public String add(@RequestParam String firstName, @RequestParam String lastName){
         Employee result = employeeService.add(firstName, lastName);

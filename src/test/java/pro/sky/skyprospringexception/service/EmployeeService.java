@@ -8,11 +8,13 @@ public interface EmployeeService {
     Employee add(Employee employee);
     Employee remove(String firstName, String lastName);
     Employee remove(Employee employee);
-    Employee find(String firstName, String lastName);
-    //Employee all();
+
+    default Employee find(String firstName, String lastName) {
+        return null;
+    }
+
+    Employee all();
 
 
-
-
-
+    Collection<Employee> getAll();
 }

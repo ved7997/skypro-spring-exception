@@ -1,22 +1,23 @@
 package pro.sky.skyprospringexception.service.impl;
 
 import org.springframework.stereotype.Service;
-import pro.sky.skyprospringexception.exception.EmployeeBookOverflowException;
 import pro.sky.skyprospringexception.exception.EmployeeExistsException;
 import pro.sky.skyprospringexception.exception.EmployeeNotFoundException;
 import pro.sky.skyprospringexception.service.Employee;
 import pro.sky.skyprospringexception.service.EmployeeService;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-    public static final int DEFAULT_CAPACITY = 10;
-
-    private final Employee[] employees;
-    private int size;
+    private final Set<Employee> employees;
 
     public EmployeeServiceImpl() {
-        employees = new Employee[DEFAULT_CAPACITY];
+        employees = new HashSet<>();
     }
+
 
     @Override
     public Employee add(String firstName, String lastName) {
@@ -26,63 +27,42 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee add(Employee employee) {
-        if (size == employees.length) {
-            throw new EmployeeBookOverflowException();
-        }
-
-        int index = indexOf(employee);
-
-        if (index != -1) {
+        if (!employees.add(employee)) {
             throw new EmployeeExistsException();
         }
-
-        employees[size++] = employee;
         return employee;
     }
 
     @Override
     public Employee remove(String firstName, String lastName){
         Employee newEmployee = new Employee(firstName, lastName);
-    return remove(newEmployee);
+        return remove(newEmployee);
     }
 
     @Override
-    public  Employee remove(Employee employee){
-        int index = indexOf(employee);
-
-        if  (index != -1) {
-            Employee result = employees[index];
-            System.arraycopy(employees, index + 1, employees, index, size - index);
-            employees[size - 1] = null;
-            size--;
-            return result;
+    public  Employee remove(Employee employee) {
+        if (!employees.remove(employee)) {
+            throw new EmployeeNotFoundException();
         }
-
-        throw new EmployeeNotFoundException();
-
+        return employee;
     }
 
     @Override
     public  Employee find(String firstName, String lastName){
-        Employee newEmployee = new Employee(firstName, lastName );
-        int index = indexOf(newEmployee);
-
-        if (index != -1){
-            return employees[index];
+        Employee employee = new Employee(firstName, lastName );
+        if (!employees.contains(employee)) {
+            throw new EmployeeNotFoundException();
         }
-
-        throw  new EmployeeNotFoundException();
-
+        return employee;
     }
 
-    private  int indexOf(Employee employee){
-        for (int i = 0; i < size; i ++) {
-            if (employees[i].equals(employee)) {
-                return i;
-            }
-        }
-        return -1;
+    @Override
+    public Employee all() {
+        return null;
     }
 
-
+    @Override
+    public Collection<Employee> getAll() {
+        return null ;
+    }
 }
