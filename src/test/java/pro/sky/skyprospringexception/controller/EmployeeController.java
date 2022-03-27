@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 import pro.sky.skyprospringexception.service.Employee;
 import pro.sky.skyprospringexception.service.EmployeeService;
 
+import java.util.Collection;
+
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -31,6 +33,11 @@ public class EmployeeController {
     @GetMapping("/find")
     public Employee find(@RequestParam String firstName, @RequestParam String lastName) {
         return employeeService.find(firstName, lastName);
+    }
+
+    @GetMapping("/all")
+    public Collection<Employee> all(){
+        return employeeService.getAll();
     }
 
     private String generateMesage(Employee employee, String status) {

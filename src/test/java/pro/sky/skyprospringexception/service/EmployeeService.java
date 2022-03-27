@@ -1,5 +1,7 @@
 package pro.sky.skyprospringexception.service;
 
+import java.util.Collection;
+
 public interface EmployeeService {
 
     Employee add(String firstName, String lastName);
@@ -8,8 +10,5 @@ public interface EmployeeService {
     Employee remove(Employee employee);
     Employee find(String firstName, String lastName);
 
-
-
-
-
+    Collection<Employee> getAll();
 }
