@@ -18,6 +18,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         employees = new HashSet<>();
     }
 
+
     @Override
     public Employee add(String firstName, String lastName) {
         Employee newEmployee = new Employee(firstName, lastName);
@@ -47,6 +48,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+<<<<<<< HEAD
     public  Employee find(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
         if (!employees.contains(employee)) {
@@ -60,4 +62,23 @@ public class EmployeeServiceImpl implements EmployeeService {
         return  Set.copyOf(employees);
     }
 
+=======
+    public  Employee find(String firstName, String lastName){
+        Employee employee = new Employee(firstName, lastName );
+        if (!employees.contains(employee)) {
+            throw new EmployeeNotFoundException();
+        }
+        return employee;
+    }
+
+    @Override
+    public Employee all() {
+        return null;
+    }
+
+    @Override
+    public Collection<Employee> getAll() {
+        return null ;
+    }
+>>>>>>> Vtoray_vetka
 }

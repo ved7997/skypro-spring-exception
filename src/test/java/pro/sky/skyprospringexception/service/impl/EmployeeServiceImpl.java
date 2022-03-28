@@ -13,7 +13,10 @@ import java.util.Set;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> Vtoray_vetka
     private final Set<Employee> employees;
 
     public EmployeeServiceImpl() {
@@ -49,6 +52,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+<<<<<<< HEAD
     public  Employee find(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
         if (!employees.contains(employee)) {
@@ -63,4 +67,23 @@ public class EmployeeServiceImpl implements EmployeeService {
         return  Set.copyOf(employees);
     }
 
+=======
+    public  Employee find(String firstName, String lastName){
+        Employee employee = new Employee(firstName, lastName );
+        if (!employees.contains(employee)) {
+            throw new EmployeeNotFoundException();
+        }
+            return employee;
+    }
+
+    @Override
+    public Employee all() {
+        return null;
+    }
+
+    @Override
+   public Collection<Employee> getAll() {
+      return null ;
+    }
+>>>>>>> Vtoray_vetka
 }

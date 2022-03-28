@@ -10,5 +10,15 @@ public interface EmployeeService {
     Employee remove(String firstName, String lastName);
     Employee remove(Employee employee);
     Employee find(String firstName, String lastName);
+<<<<<<< HEAD
     Collection<Employee> getAll();
+=======
+
+    Employee all();
+
+    Collection<Employee> getAll();
+
+
+
+>>>>>>> Vtoray_vetka
 }
