@@ -48,7 +48,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-<<<<<<< HEAD
     public  Employee find(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
         if (!employees.contains(employee)) {
@@ -57,28 +56,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         return employee;
     }
+
+
     @Override
     public Collection<Employee> getAll(){
         return  Set.copyOf(employees);
     }
 
-=======
-    public  Employee find(String firstName, String lastName){
-        Employee employee = new Employee(firstName, lastName );
-        if (!employees.contains(employee)) {
-            throw new EmployeeNotFoundException();
-        }
-        return employee;
-    }
-
-    @Override
-    public Employee all() {
-        return null;
-    }
-
-    @Override
-    public Collection<Employee> getAll() {
-        return null ;
-    }
->>>>>>> Vtoray_vetka
 }
