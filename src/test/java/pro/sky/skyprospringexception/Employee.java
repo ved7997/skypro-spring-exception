@@ -34,8 +34,7 @@ public class Employee {
     public String toString() {
         return  firstName + " " + lastName;
     }
-
-
+    `
     public String getFirstName() {
         return firstName;
     }
