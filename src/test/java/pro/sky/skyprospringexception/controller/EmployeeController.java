@@ -12,10 +12,8 @@ import pro.sky.skyprospringexception.service.Employee;
 import pro.sky.skyprospringexception.service.EmployeeService;
 
 import java.util.Collection;
-<<<<<<< HEAD
-=======
+
 import java.util.Set;
->>>>>>> Vtoray_vetka
 
 @RestController
 @RequestMapping("/employee")
@@ -51,11 +49,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/all")
-<<<<<<< HEAD
     public Collection<Employee> all(){
-=======
-    public Collection<Employee> all() {
->>>>>>> Vtoray_vetka
         return employeeService.getAll();
     }
 
