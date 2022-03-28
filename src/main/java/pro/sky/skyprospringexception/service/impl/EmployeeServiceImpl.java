@@ -52,6 +52,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (!employees.contains(employee)) {
             throw new EmployeeNotFoundException();
         }
+
         return employee;
     }
 
