@@ -48,21 +48,19 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public  Employee find(String firstName, String lastName){
-        Employee employee = new Employee(firstName, lastName );
+
+    public  Employee find(String firstName, String lastName) {
+        Employee employee = new Employee(firstName, lastName);
         if (!employees.contains(employee)) {
             throw new EmployeeNotFoundException();
         }
-            return employee;
+        return employee;
     }
 
-    @Override
-    public Employee all() {
-        return null;
-    }
 
     @Override
-   public Collection<Employee> getAll() {
-      return null ;
+    public Collection<Employee> getAll(){
+        return  Set.copyOf(employees);
     }
+
 }

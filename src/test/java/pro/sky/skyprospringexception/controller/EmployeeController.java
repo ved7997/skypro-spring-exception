@@ -12,6 +12,7 @@ import pro.sky.skyprospringexception.service.Employee;
 import pro.sky.skyprospringexception.service.EmployeeService;
 
 import java.util.Collection;
+
 import java.util.Set;
 
 @RestController
@@ -48,7 +49,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/all")
-    public Collection<Employee> all() {
+    public Collection<Employee> all(){
         return employeeService.getAll();
     }
 
