@@ -29,7 +29,6 @@ public class EmployeeController {
         Employee result = employeeService.remove(firstName, lastName);
         return generateMesage(result, "удалён");
     }
-
     @GetMapping("/find")
     public Employee find(@RequestParam String firstName, @RequestParam String lastName) {
         return employeeService.find(firstName, lastName);

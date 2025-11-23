@@ -27,6 +27,7 @@ public class Employee {
 
     @Override
     public int hashCode() {
+
         return Objects.hash(firstName, lastName);
     }
 
@@ -34,7 +35,6 @@ public class Employee {
     public String toString() {
         return  firstName + " " + lastName;
     }
-
 
     public String getFirstName() {
         return firstName;

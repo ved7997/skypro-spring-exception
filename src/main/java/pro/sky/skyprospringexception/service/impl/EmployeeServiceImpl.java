@@ -18,7 +18,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         employees = new HashSet<>();
     }
 
-
     @Override
     public Employee add(String firstName, String lastName) {
         Employee newEmployee = new Employee(firstName, lastName);

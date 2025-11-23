@@ -2,6 +2,7 @@ package pro.sky.skyprospringexception.service;
 
 import java.util.Collection;
 
+
 public interface EmployeeService {
 
 
